@@ -1,0 +1,45 @@
+{
+  "name": "networkwatcher",
+  "version": "0.0.1",
+  "description": "A linux network status statistics tools.",
+  "author": "feilong <614183595@qq.com>",
+  "private": true,
+  "scripts": {
+    "dev": "lavas dev",
+    "build": "lavas build",
+    "start": "lavas start",
+    "lint": "fecs ./ --rule --type 'vue,js,css'"
+  },
+  "dependencies": {
+    "array-includes": "^3.0.3",
+    "array.prototype.find": "^2.0.4",
+    "cross-env": "^5.1.1",
+    "es6-promise": "^4.1.1",
+    "express": "^4.0.0",
+    "fastclick": "^1.0.6",
+    "iscroll": "5.1.0",
+    "lavas-core-vue": "^1.0.3",
+    "normalize.css": "^7.0.0",
+    "socket.io": "^2.0.4",
+    "stoppable": "^1.0.4",
+    "vuetify": "^0.17.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^7.2.5",
+    "babel-preset-vue-app": "^1.3.1",
+    "http-proxy-middleware": "^0.17.4"
+  },
+  "engines": {
+    "node": ">= 5.0.0",
+    "npm": ">= 3.0.0"
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not ie <= 8"
+  ],
+  "lavas": {
+    "core": "lavas-core-vue",
+    "version": "2"
+  }
+}
