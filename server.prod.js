@@ -16,10 +16,10 @@ let io;
 let fs = require("fs");
 let networkfile = '/proc/net/dev';
 var networkinfo = fs.readFileSync(networkfile);
-var networkinfoarr = networkinfo.toString().match(/eth0: (.*)/)[1].split(/ +/);
+var networkinfoarr = networkinfo.toString().match(/wlp7s0: (.*)/)[1].split(/ +/);
 var networkTime = Date.now();
 let date;
-var networkcardname = 'eth0'
+var networkcardname = 'wlp7s0'
 
 var networkUploadSumLast = networkinfoarr[8];
 var networkDownloadSumLast = networkinfoarr[0];
@@ -38,7 +38,7 @@ function getNetworkInfo() {
         }
 
         //cat info to array
-        networkinfoarr = networkinfo.toString().match(/eth0: (.*)/)[1].split(/ +/);
+        networkinfoarr = networkinfo.toString().match(/wlp7s0: (.*)/)[1].split(/ +/);
         // console.log(networkTime);
         //calc log time
         date = new Date(Date.now() - networkTime);
