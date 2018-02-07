@@ -4,6 +4,14 @@
 
 ![](./static/img/neko/neko.jpg)
 
+## 截图
+
+![](./screen/web1.png)  
+![](./screen/web2.png)  
+![](./screen/Galaxy_S5.png)  
+![](./screen/iPhone_X.png)  
+
+
 ## npm 相关命令
 
 ``` bash
