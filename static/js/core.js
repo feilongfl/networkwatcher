@@ -11,14 +11,15 @@ var dataspeedcanvas;
 var nowspeedcanvas;
 
 var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+var byte2k = 1000;
 
 function bytesToSize(bytes) {
     //https://stackoverflow.com/questions/15900485/correct-way-to-convert-size-in-bytes-to-kb-mb-gb-in-javascript/18650828#18650828
     if (bytes == 0) return '0 Byte';
-    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-    return [Math.round(bytes / Math.pow(1024, i), 2),
+    var i = parseInt(Math.floor(Math.log(bytes) / Math.log(byte2k)));
+    return [Math.round(bytes / Math.pow(byte2k, i), 2),
         i,
-        Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i]
+        Math.round(bytes / Math.pow(byte2k, i), 2) + ' ' + sizes[i]
     ];
 };
 
@@ -27,13 +28,13 @@ socket.on('networkMsg', function(data) {
     // console.log(data);
 
     //fix number
-    var _upsum = data.upSum / (1024 ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1]));
-    var _downsum = data.downSum / (1024 ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1]));
-    var _upspeed = data.upSpeed / (1024 ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]));
-    var _downspeed = data.downSpeed / (1024 ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]));
+    var _upsum = data.upSum / (byte2k ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1]));
+    var _downsum = data.downSum / (byte2k ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1]));
+    var _upspeed = data.upSpeed / (byte2k ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]));
+    var _downspeed = data.downSpeed / (byte2k ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]));
     // console.log(_upsum, _downsum, _upspeed, _downspeed,
-    //     (1024 ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1])),
-    //     (1024 ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]))
+    //     (byte2k ** Math.min(bytesToSize(data.upSum)[1], bytesToSize(data.downSum)[1])),
+    //     (byte2k ** Math.min(bytesToSize(data.upSpeed)[1], bytesToSize(data.downSpeed)[1]))
     // );
 
     //update canvas
