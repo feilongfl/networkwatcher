@@ -2,6 +2,8 @@
 
 > A linux network status statistics tools.
 
+![](./static/img/neko/neko.jpg)
+
 ## npm 相关命令
 
 ``` bash
